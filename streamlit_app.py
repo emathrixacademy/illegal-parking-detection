@@ -310,6 +310,28 @@ st.markdown("""
         margin: 2rem 0;
     }
     </style>
+    st.markdown("""
+    <style>
+    /* Nuclear option - hide everything in header */
+    .stApp > header,
+    [data-testid="stHeader"],
+    [data-testid="stToolbar"],
+    .stToolbar,
+    button[kind="header"],
+    button[title="Share"],
+    button[title="Fork"],
+    .stAppDeployButton,
+    .stApp > header > div,
+    header > div > div > button {
+        display: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+        height: 0 !important;
+        width: 0 !important;
+        pointer-events: none !important;
+    }
+    </style>
+
 """, unsafe_allow_html=True)
 
 # Initialize Firebase
