@@ -11,7 +11,7 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# Ultra-clean modern CSS
+# Clean white design with minimal purple accents
 st.markdown("""
     <style>
     /* Import Google Font */
@@ -22,9 +22,9 @@ st.markdown("""
         font-family: 'Inter', sans-serif;
     }
     
-    /* Main background */
+    /* Main background - WHITE */
     .stApp {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        background: #ffffff;
     }
     
     /* Hide Streamlit elements */
@@ -39,11 +39,13 @@ st.markdown("""
         max-width: 1200px;
     }
     
-    /* Header section */
+    /* Header section - Dark Purple Gradient */
     .header-container {
+        background: linear-gradient(135deg, #5b21b6 0%, #7c3aed 100%);
         text-align: center;
         padding: 3rem 2rem;
-        margin-bottom: 2rem;
+        margin: -2rem -2rem 2rem -2rem;
+        border-radius: 0 0 24px 24px;
     }
     
     .main-title {
@@ -56,7 +58,7 @@ st.markdown("""
     
     .subtitle {
         font-size: 1.2rem;
-        color: rgba(255, 255, 255, 0.9);
+        color: rgba(255, 255, 255, 0.95);
         font-weight: 400;
     }
     
@@ -65,24 +67,32 @@ st.markdown("""
         background: white;
         border-radius: 16px;
         padding: 2rem;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.07);
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         margin-bottom: 1.5rem;
+        border: 1px solid #e5e7eb;
         transition: all 0.3s ease;
     }
     
     .clean-card:hover {
-        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
+        box-shadow: 0 4px 12px rgba(91, 33, 182, 0.1);
         transform: translateY(-2px);
+        border-color: #c4b5fd;
     }
     
-    /* Status cards */
+    /* Status cards - White with purple border */
     .status-card {
         background: white;
+        border: 2px solid #e5e7eb;
         border-radius: 16px;
         padding: 2rem;
         text-align: center;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.07);
+        transition: all 0.3s ease;
         height: 100%;
+    }
+    
+    .status-card:hover {
+        border-color: #7c3aed;
+        box-shadow: 0 4px 12px rgba(124, 58, 237, 0.15);
     }
     
     .status-icon {
@@ -92,7 +102,7 @@ st.markdown("""
     
     .status-label {
         font-size: 0.875rem;
-        color: #64748b;
+        color: #6b7280;
         text-transform: uppercase;
         letter-spacing: 0.5px;
         font-weight: 600;
@@ -102,14 +112,14 @@ st.markdown("""
     .status-value {
         font-size: 2rem;
         font-weight: 700;
-        color: #1e293b;
+        color: #111827;
         margin-bottom: 0.5rem;
     }
     
     .status-text {
         font-size: 0.875rem;
-        color: #94a3b8;
-        font-weight: 500;
+        color: #7c3aed;
+        font-weight: 600;
     }
     
     /* Status indicator dot */
@@ -139,18 +149,31 @@ st.markdown("""
         }
     }
     
+    /* Section headers with purple accent */
+    .section-header {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: #111827;
+        margin-bottom: 1.5rem;
+        padding-bottom: 0.75rem;
+        border-bottom: 3px solid #7c3aed;
+        display: inline-block;
+    }
+    
     /* Feature cards */
     .feature-card {
         background: white;
+        border: 1px solid #e5e7eb;
         border-radius: 12px;
         padding: 1.5rem;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
         margin-bottom: 1rem;
         transition: all 0.2s ease;
     }
     
     .feature-card:hover {
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        border-color: #c4b5fd;
+        box-shadow: 0 4px 8px rgba(124, 58, 237, 0.1);
+        transform: translateX(5px);
     }
     
     .feature-icon {
@@ -161,30 +184,76 @@ st.markdown("""
     .feature-title {
         font-size: 1rem;
         font-weight: 600;
-        color: #1e293b;
+        color: #111827;
         margin-bottom: 0.25rem;
     }
     
     .feature-text {
         font-size: 0.875rem;
-        color: #64748b;
+        color: #6b7280;
     }
     
-    /* Section headers */
-    .section-header {
-        font-size: 1.5rem;
-        font-weight: 700;
-        color: #1e293b;
-        margin-bottom: 1.5rem;
-    }
-    
-    /* Violation card */
-    .violation-card {
+    /* Metrics - purple accent */
+    .metric-container {
+        text-align: center;
+        padding: 1.5rem;
         background: white;
         border-radius: 12px;
-        padding: 1.5rem;
-        margin-bottom: 1rem;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        border: 2px solid #e5e7eb;
+        transition: all 0.3s ease;
+    }
+    
+    .metric-container:hover {
+        border-color: #7c3aed;
+        box-shadow: 0 4px 12px rgba(124, 58, 237, 0.15);
+    }
+    
+    .metric-value {
+        font-size: 2.5rem;
+        font-weight: 800;
+        color: #7c3aed;
+        line-height: 1;
+        margin-bottom: 0.5rem;
+    }
+    
+    .metric-label {
+        font-size: 0.875rem;
+        color: #6b7280;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+    
+    .metric-delta {
+        font-size: 0.75rem;
+        margin-top: 0.5rem;
+        font-weight: 600;
+    }
+    
+    /* Info box - light purple background */
+    .info-box {
+        background: #faf5ff;
+        border-left: 4px solid #7c3aed;
+        border-radius: 8px;
+        padding: 1rem;
+        margin: 1rem 0;
+        transition: all 0.2s ease;
+    }
+    
+    .info-box:hover {
+        background: #f3e8ff;
+    }
+    
+    .info-title {
+        font-weight: 600;
+        color: #5b21b6;
+        margin-bottom: 0.5rem;
+    }
+    
+    .info-text {
+        color: #4b5563;
+        font-size: 0.875rem;
+        line-height: 1.6;
     }
     
     /* Badge */
@@ -208,76 +277,37 @@ st.markdown("""
         color: #059669;
     }
     
-    /* Metrics */
-    .metric-container {
-        text-align: center;
-    }
-    
-    .metric-value {
-        font-size: 2.5rem;
-        font-weight: 800;
-        color: #1e293b;
-        line-height: 1;
-        margin-bottom: 0.5rem;
-    }
-    
-    .metric-label {
-        font-size: 0.875rem;
-        color: #64748b;
-        font-weight: 500;
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
-    }
-    
-    .metric-delta {
-        font-size: 0.875rem;
-        margin-top: 0.5rem;
-    }
-    
-    /* Info box */
-    .info-box {
-        background: #f8fafc;
-        border-left: 4px solid #667eea;
-        border-radius: 8px;
-        padding: 1rem;
-        margin: 1rem 0;
-    }
-    
-    .info-title {
-        font-weight: 600;
-        color: #1e293b;
-        margin-bottom: 0.5rem;
-    }
-    
-    .info-text {
-        color: #64748b;
-        font-size: 0.875rem;
-        line-height: 1.6;
-    }
-    
-    /* Sidebar styling */
+    /* Sidebar - Dark Purple */
     [data-testid="stSidebar"] {
-        background: linear-gradient(180deg, #667eea 0%, #764ba2 100%);
+        background: linear-gradient(180deg, #5b21b6 0%, #7c3aed 100%);
     }
     
-    [data-testid="stSidebar"] .css-1d391kg {
-        background: transparent;
+    [data-testid="stSidebar"] * {
+        color: white !important;
     }
     
     /* Button styling */
     .stButton>button {
-        background: #667eea;
+        background: #7c3aed;
         color: white;
         border: none;
         border-radius: 8px;
         padding: 0.5rem 1.5rem;
         font-weight: 600;
         transition: all 0.2s;
+        border: 2px solid #7c3aed;
     }
     
     .stButton>button:hover {
-        background: #5568d3;
-        box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+        background: #6d28d9;
+        box-shadow: 0 4px 12px rgba(124, 58, 237, 0.3);
+    }
+    
+    /* Divider */
+    hr {
+        border: none;
+        border-top: 2px solid #e5e7eb;
+        margin: 2rem 0;
     }
     </style>
 """, unsafe_allow_html=True)
@@ -296,7 +326,7 @@ try:
 except Exception as e:
     firebase_connected = False
 
-# Header
+# Header - Only dark purple section
 st.markdown("""
     <div class="header-container">
         <div class="main-title">🚗 Smart Parking Enforcement</div>
@@ -305,7 +335,7 @@ st.markdown("""
     </div>
 """, unsafe_allow_html=True)
 
-# Status Cards
+# Status Cards - White with borders
 col1, col2, col3 = st.columns(3)
 
 with col1:
@@ -334,7 +364,7 @@ with col2:
                 <div class="status-icon">🗄️</div>
                 <div class="status-label">Database</div>
                 <div class="status-value"><span class="status-dot status-offline"></span></div>
-                <div class="status-text">DISCONNECTED</div>
+                <div class="status-text" style="color: #ef4444;">DISCONNECTED</div>
             </div>
         """, unsafe_allow_html=True)
 
@@ -354,6 +384,7 @@ st.markdown("<br>", unsafe_allow_html=True)
 if firebase_connected:
     st.markdown('<div class="clean-card">', unsafe_allow_html=True)
     st.markdown('<div class="section-header">📊 Today\'s Overview</div>', unsafe_allow_html=True)
+    st.markdown("<br>", unsafe_allow_html=True)
     
     col1, col2, col3, col4 = st.columns(4)
     
@@ -437,6 +468,8 @@ if firebase_connected:
     
     st.markdown('</div>', unsafe_allow_html=True)
 
+st.markdown("<br>", unsafe_allow_html=True)
+
 # About System
 col1, col2 = st.columns([2, 1])
 
@@ -470,7 +503,7 @@ with col1:
 
 with col2:
     st.markdown('<div class="clean-card">', unsafe_allow_html=True)
-    st.markdown('<div class="section-header">📋 Research Info</div>', unsafe_allow_html=True)
+    st.markdown('<div class="section-header">📋 Project Info</div>', unsafe_allow_html=True)
     
     st.markdown("""
         <div class="info-box">
@@ -525,9 +558,9 @@ if firebase_connected:
                     st.image(data['image_url'], use_column_width=True)
                 else:
                     st.markdown("""
-                        <div style="background: #f1f5f9; padding: 2rem; text-align: center; border-radius: 8px;">
+                        <div style="background: #f9fafb; padding: 2rem; text-align: center; border-radius: 8px; border: 1px solid #e5e7eb;">
                             <div style="font-size: 2rem;">📷</div>
-                            <div style="font-size: 0.75rem; color: #94a3b8; margin-top: 0.5rem;">No Image</div>
+                            <div style="font-size: 0.75rem; color: #9ca3af; margin-top: 0.5rem;">No Image</div>
                         </div>
                     """, unsafe_allow_html=True)
             
@@ -539,13 +572,13 @@ if firebase_connected:
                 
                 st.markdown(f"""
                     <div>
-                        <div style="font-weight: 600; font-size: 1.1rem; color: #1e293b; margin-bottom: 0.5rem;">
+                        <div style="font-weight: 600; font-size: 1.1rem; color: #111827; margin-bottom: 0.5rem;">
                             🚗 {vehicle} - {plate}
                         </div>
-                        <div style="color: #64748b; font-size: 0.875rem; margin-bottom: 0.25rem;">
+                        <div style="color: #6b7280; font-size: 0.875rem; margin-bottom: 0.25rem;">
                             ⏱️ Duration: {duration:.1f} minutes
                         </div>
-                        <div style="color: #64748b; font-size: 0.875rem;">
+                        <div style="color: #6b7280; font-size: 0.875rem;">
                             📍 {location}
                         </div>
                     </div>
@@ -555,7 +588,7 @@ if firebase_connected:
                 timestamp = data.get('timestamp')
                 if timestamp:
                     st.markdown(f"""
-                        <div style="text-align: right; color: #94a3b8; font-size: 0.875rem; margin-bottom: 1rem;">
+                        <div style="text-align: right; color: #9ca3af; font-size: 0.875rem; margin-bottom: 1rem;">
                             🕐 {timestamp.strftime('%H:%M:%S')}
                         </div>
                     """, unsafe_allow_html=True)
@@ -566,14 +599,14 @@ if firebase_connected:
                 else:
                     st.markdown('<div class="badge badge-resolved">🟢 Resolved</div>', unsafe_allow_html=True)
             
-            st.markdown("<hr style='margin: 1.5rem 0; border: none; border-top: 1px solid #e2e8f0;'>", unsafe_allow_html=True)
+            st.markdown("<hr>", unsafe_allow_html=True)
         
         if not violations_found:
             st.markdown("""
-                <div style="text-align: center; padding: 3rem; color: #94a3b8;">
+                <div style="text-align: center; padding: 3rem; color: #9ca3af;">
                     <div style="font-size: 3rem; margin-bottom: 1rem;">✅</div>
                     <div style="font-size: 1.1rem; font-weight: 600; color: #10b981;">No violations recorded yet</div>
-                    <div style="font-size: 0.875rem; margin-top: 0.5rem;">System is ready to monitor!</div>
+                    <div style="font-size: 0.875rem; margin-top: 0.5rem; color: #6b7280;">System is ready to monitor!</div>
                 </div>
             """, unsafe_allow_html=True)
     
@@ -583,28 +616,29 @@ if firebase_connected:
     st.markdown('</div>', unsafe_allow_html=True)
 
 # Footer
+st.markdown("<hr>", unsafe_allow_html=True)
 st.markdown("""
-    <div style="text-align: center; color: white; padding: 2rem 0; margin-top: 2rem;">
-        <div style="font-size: 0.875rem; opacity: 0.9;">
+    <div style="text-align: center; color: #6b7280; padding: 2rem 0;">
+        <div style="font-size: 0.875rem;">
             © 2025 Ma. Ymelda C. Batalla • Technological University of the Philippines
         </div>
-        <div style="font-size: 0.75rem; opacity: 0.7; margin-top: 0.5rem;">
+        <div style="font-size: 0.75rem; color: #9ca3af; margin-top: 0.5rem;">
             Powered by YOLOv8, Hailo AI, Firebase & Streamlit
         </div>
     </div>
 """, unsafe_allow_html=True)
 
-# Sidebar
+# Sidebar - Dark purple (only colored section)
 with st.sidebar:
     st.markdown("""
-        <div style="color: white; padding: 1rem 0;">
-            <h3 style="color: white; margin-bottom: 1rem;">🧭 Quick Navigation</h3>
+        <div style="padding: 1rem 0;">
+            <h3 style="margin-bottom: 1rem;">🧭 Quick Navigation</h3>
         </div>
     """, unsafe_allow_html=True)
     
     st.markdown("""
         <div style="background: rgba(255,255,255,0.1); padding: 1rem; border-radius: 8px; margin-bottom: 1rem;">
-            <div style="color: white; font-size: 0.875rem; line-height: 1.8;">
+            <div style="font-size: 0.875rem; line-height: 1.8;">
                 📊 <strong>Dashboard</strong>: Overview<br>
                 🚨 <strong>Live Violations</strong>: Active monitoring<br>
                 📈 <strong>Analytics</strong>: Trends & insights
@@ -614,8 +648,8 @@ with st.sidebar:
     
     st.markdown("""
         <div style="background: rgba(255,255,255,0.1); padding: 1rem; border-radius: 8px;">
-            <div style="color: white; font-weight: 600; margin-bottom: 0.5rem;">⚡ System Status</div>
-            <div style="color: rgba(255,255,255,0.9); font-size: 0.875rem;">
+            <div style="font-weight: 600; margin-bottom: 0.5rem;">⚡ System Status</div>
+            <div style="font-size: 0.875rem;">
                 ✅ All systems operational<br>
                 📊 Uptime: 99.9%
             </div>
