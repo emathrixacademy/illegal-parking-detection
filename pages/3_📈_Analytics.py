@@ -84,20 +84,4 @@ try:
         
 except Exception as e:
     st.error(f"Error loading analytics: {e}")
-```
 
-4. Click **"Commit changes"**
-
----
-
-### **File 6: requirements.txt**
-
-1. Click **"Add file"** → **"Create new file"**
-2. **Filename:** `requirements.txt`
-3. **Paste this:**
-```
-streamlit==1.29.0
-firebase-admin==6.3.0
-pandas==2.1.4
-plotly==5.18.0
-Pillow==10.1.0
