@@ -1,5 +1,5 @@
-streamlit
-firebase-admin
-pandas
-plotly
-Pillow
+streamlit==1.29.0
+firebase-admin==6.3.0
+pandas==2.1.4
+plotly==5.18.0
+Pillow==10.1.0
