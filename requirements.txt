@@ -1,0 +1,104 @@
+streamlit
+firebase-admin
+pandas
+plotly
+Pillow
+```
+
+4. **If it already exists, click on it and edit:**
+   - Click the **pencil icon** (Edit this file)
+   - Make sure it contains exactly this (no extra characters):
+```
+streamlit
+firebase-admin
+pandas
+plotly
+Pillow
+```
+
+5. **Commit the changes:**
+   - Scroll down
+   - Click **"Commit changes"**
+
+---
+
+## **📋 Step 2: Fix the SyntaxError (Invalid Character)**
+
+The third error shows `SyntaxError: invalid character '+' (U+2192)` which means there's a special character in your code.
+
+**This might be an arrow character `→` instead of regular characters.**
+
+### **Check your Python files on GitHub:**
+
+1. **Open `pages/3_📈_Analytics.py`**
+2. **Look for any arrow symbols `→` or special characters**
+3. **If you find any, delete and retype them as regular characters**
+
+**The filename itself might be the issue.** Try renaming:
+- From: `3_📈_Analytics.py`
+- To: `3_Analytics.py` (remove the emoji)
+
+**To rename on GitHub:**
+1. Open the file
+2. Click **pencil icon** to edit
+3. Change the filename at the top
+4. Remove the emoji from the filename
+5. Commit changes
+
+**Do the same for all page files:**
+- Rename `1_📊_Dashboard.py` → `1_Dashboard.py`
+- Rename `2_🚨_Live_Violations.py` → `2_Live_Violations.py`
+- Rename `3_📈_Analytics.py` → `3_Analytics.py`
+
+---
+
+## **📋 Step 3: Force Streamlit Cloud to Redeploy**
+
+1. **Go to Streamlit Cloud:** https://share.streamlit.io/
+2. **Click on your app**
+3. **Click the menu (⋮)** → **"Reboot app"**
+4. **Wait 2-3 minutes** for redeployment
+
+---
+
+## **✅ Alternative: Simplified File Structure**
+
+**If errors persist, let's simplify. Here's what your GitHub should look like:**
+```
+illegal-parking-detection/
+├── streamlit_app.py
+├── requirements.txt
+└── pages/
+    ├── 1_Dashboard.py
+    ├── 2_Live_Violations.py
+    └── 3_Analytics.py
+```
+
+**Notice:** No emojis in filenames!
+
+---
+
+## **🔍 Verify requirements.txt Format**
+
+**Make sure `requirements.txt` looks EXACTLY like this (no extra spaces, no version numbers for now):**
+```
+streamlit
+firebase-admin
+pandas
+plotly
+Pillow
+```
+
+**Each package on its own line, nothing else.**
+
+---
+
+## **📝 Updated requirements.txt with Versions (Use This Instead)**
+
+If the simple version doesn't work, try with specific versions:
+```
+streamlit==1.29.0
+firebase-admin==6.3.0
+pandas==2.1.4
+plotly==5.18.0
+Pillow==10.1.0
